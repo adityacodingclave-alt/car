@@ -1,0 +1,39 @@
+import Header from "@/components/Header";
+import HeroBanner from "@/components/HeroBanner";
+import CapitalBeauty from "@/components/CapitalBeauty";
+import ServicesSection from "@/components/ServicesSection";
+import LocationsSection from "@/components/LocationsSection";
+import NewsFeed from "@/components/NewsFeed";
+import Footer from "@/components/Footer";
+import {
+  getHomepage,
+  getModels,
+  getCategories,
+  getCapitalBeauty,
+} from "@/lib/fetch-data";
+
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const [homepage, models, categories, capitalBeauty] = await Promise.all([
+    getHomepage(),
+    getModels(),
+    getCategories(),
+    getCapitalBeauty(),
+  ]);
+
+  return (
+    <>
+      <div className="quick-links-tab">Quick links</div>
+      <Header homepage={homepage} models={models} categories={categories} />
+      <main className="habetlouta">
+        <HeroBanner homepage={homepage} />
+        <CapitalBeauty data={capitalBeauty} />
+        <ServicesSection />
+        <LocationsSection />
+        <NewsFeed />
+      </main>
+      <Footer homepage={homepage} models={models} />
+    </>
+  );
+}

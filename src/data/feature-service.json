@@ -1,0 +1,43 @@
+{
+  "status": true,
+  "message": "Feature List Successfully Located.",
+  "data": [
+    {
+      "id": 1,
+      "title": "Marketing support",
+      "title_ar": "الدَّعم التَّسويقيّ",
+      "image": "94_17194912886_20221010133220A002.jpeg"
+    },
+    {
+      "id": 2,
+      "title": "Engineering Development",
+      "title_ar": "ّالتَّطوير الهندسي",
+      "image": "991_17194913602.jpeg"
+    },
+    {
+      "id": 3,
+      "title": "Quality Assurance",
+      "title_ar": "ضمان الجودة",
+      "image": "1000_17194913733.jpeg"
+    },
+    {
+      "id": 4,
+      "title": "After sales Training",
+      "title_ar": "تدريب ما بعد البيع",
+      "image": "203_17194913884.jpeg"
+    },
+    {
+      "id": 7,
+      "title": "Parts Supply",
+      "title_ar": "توريد قطع الغيار",
+      "image": "778_17194914005.jpeg"
+    },
+    {
+      "id": 8,
+      "title": "Technical Support",
+      "title_ar": "ّالدَّعم الفني",
+      "image": "863_17194914126.jpeg"
+    }
+  ],
+  "code": 200
+}
