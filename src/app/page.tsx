@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import QuickLinks from "@/components/QuickLinks";
 import HeroBanner from "@/components/HeroBanner";
 import CapitalBeauty from "@/components/CapitalBeauty";
 import ServicesSection from "@/components/ServicesSection";
@@ -24,7 +25,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="quick-links-tab">Quick links</div>
+      <QuickLinks />
       <Header homepage={homepage} models={models} categories={categories} />
       <main className="habetlouta">
         <HeroBanner homepage={homepage} />

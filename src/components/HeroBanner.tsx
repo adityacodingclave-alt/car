@@ -18,6 +18,7 @@ const slides = (homepage: HomepageData) => [
     desktop: homepage.banner_image1,
     mobile: homepage.banner_image1_mobile,
     title: homepage.banner_image1_title,
+    description: homepage.banner_image1_description,
     btn1: homepage.banner_image1_button1,
     btn1Url: homepage.banner_image1_button1_url,
     btn2: homepage.banner_image1_button2,
@@ -27,6 +28,7 @@ const slides = (homepage: HomepageData) => [
     desktop: homepage.banner_image2,
     mobile: homepage.banner_image2_mobile,
     title: homepage.banner_image2_title,
+    description: homepage.banner_image2_description,
     btn1: homepage.banner_image2_button1,
     btn1Url: homepage.banner_image2_button1_url,
     btn2: homepage.banner_image2_button2,
@@ -36,6 +38,7 @@ const slides = (homepage: HomepageData) => [
     desktop: homepage.banner_image3,
     mobile: homepage.banner_image3_mobile,
     title: homepage.banner_image3_title,
+    description: homepage.banner_image3_description,
     btn1: homepage.banner_image3_button1,
     btn1Url: homepage.banner_image3_button1_url,
     btn2: homepage.banner_image3_button2,
@@ -58,32 +61,40 @@ export default function HeroBanner({ homepage }: HeroBannerProps) {
           >
             {items.map((slide, index) => (
               <SwiperSlide key={index}>
-                <div className="banner-slide-wrap">
-                  <picture>
-                    <source
-                      media="(max-width: 768px)"
-                      srcSet={imageUrl(slide.mobile)}
-                    />
-                    <Image
-                      src={imageUrl(slide.desktop)}
-                      alt={slide.title}
-                      width={1920}
-                      height={900}
-                      className="img-fluid w-100"
-                      priority={index === 0}
-                      unoptimized
-                    />
-                  </picture>
-                  <div className="banner-overlay">
+                <picture>
+                  <source
+                    media="(max-width: 768px)"
+                    srcSet={imageUrl(slide.mobile)}
+                  />
+                  <Image
+                    src={imageUrl(slide.desktop)}
+                    alt={slide.title}
+                    width={1920}
+                    height={900}
+                    className="img-fluid"
+                    priority={index === 0}
+                    unoptimized
+                  />
+                </picture>
+                <div className="slider-info">
+                  <div>
                     <h1>{slide.title}</h1>
-                    <div className="slider-action-buttons">
+                    <h5>{slide.description}</h5>
+                    <div className="text-center slider-action-buttons">
                       <Link
                         href={slide.btn1Url}
-                        className="btn-testdrive-outline"
+                        className="btn btn-outline-light"
+                        rel="noopener noreferrer"
                       >
                         {slide.btn1}
                       </Link>
-                      <Link href={slide.btn2Url} className="btn-contact">
+                    </div>
+                    <div className="text-center slider-action-buttons">
+                      <Link
+                        href={slide.btn2Url}
+                        className="btn btn-light"
+                        rel="noopener noreferrer"
+                      >
                         {slide.btn2}
                       </Link>
                     </div>
@@ -95,13 +106,14 @@ export default function HeroBanner({ homepage }: HeroBannerProps) {
         </div>
       </section>
 
-      <iframe
-        src="https://360.baicuae.com"
-        className="responsive-iframe"
-        title="BAIC 360 car viewer"
-        loading="lazy"
-        allow="autoplay; fullscreen"
-      />
+      <div className="car-360-iframe-wrap">
+        <iframe
+          src="https://360.baicuae.com"
+          className="responsive-iframe"
+          title="BAIC 360 car viewer"
+          loading="lazy"
+        />
+      </div>
     </>
   );
 }

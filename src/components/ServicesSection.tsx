@@ -6,25 +6,25 @@ const services = [
     title: "Research & Development",
     href: "/research-development",
     image: "/images/research.BQeg7WcW.jpg",
-    col: "col-sm-6",
+    col: "col-12 col-sm-6",
   },
   {
     title: "Off-Road Vehicle",
     href: "/off-road",
     image: "/images/off-road-home.UmanChz8.jpg",
-    col: "col-sm-6",
+    col: "col-12 col-sm-6",
   },
   {
     title: "BAIC History",
     href: "/history",
     image: "/images/baic-history.HEAf_F-F.jpg",
-    col: "col-sm-5",
+    col: "col-12 col-sm-5",
   },
   {
     title: "Learn Everything About BAIC Here",
     href: "/overview",
     image: "/images/service5.rOB2QFFQ.png",
-    col: "col-sm-7",
+    col: "col-12 col-sm-7",
   },
 ];
 
@@ -36,13 +36,15 @@ export default function ServicesSection() {
           {services.map((service) => (
             <div key={service.href} className={service.col}>
               <Link href={service.href} className="service-box">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  width={600}
-                  height={400}
-                  className="img-fluid"
-                />
+                <div className="service-image">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={600}
+                    height={450}
+                    className="img-fluid"
+                  />
+                </div>
                 <h3>{service.title}</h3>
               </Link>
             </div>

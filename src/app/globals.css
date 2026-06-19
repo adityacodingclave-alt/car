@@ -5,17 +5,32 @@ body {
 
 .habetlouta {
   margin-top: 0;
-  padding-top: 70px;
+  padding-top: 0;
+}
+
+.car-360-iframe-wrap {
+  margin-top: 54px;
+  position: relative;
+  z-index: 1;
 }
 
 .responsive-iframe {
   display: block;
   width: 100%;
   border: 0;
-  min-height: 720px;
-  height: 88vh;
-  max-height: 920px;
+  height: 1296px;
+  margin-top: 0;
   background: #fff;
+}
+
+@media (max-width: 768px) {
+  .car-360-iframe-wrap {
+    margin-top: 32px;
+  }
+
+  .responsive-iframe {
+    height: 920px;
+  }
 }
 
 .section-beauty img {
@@ -32,88 +47,60 @@ body {
   text-shadow: none;
 }
 
-.section-banner .swiper-slide img {
-  width: 100%;
-  height: auto;
-  display: block;
+.section-banner {
+  margin-bottom: 0;
+  overflow: visible !important;
+  position: relative;
+  z-index: 2;
 }
 
-.banner-slide-wrap {
+.section-banner,
+.section-banner .slider-banner,
+.section-banner .swiper,
+.section-banner .swiper-wrapper,
+.section-banner .swiper-slide {
+  height: 100vh;
+}
+
+.section-banner .swiper-slide {
   position: relative;
 }
 
-.banner-overlay {
-  position: absolute;
-  left: 5%;
-  bottom: 28%;
-  z-index: 2;
-}
-
-.banner-overlay h1 {
-  color: #fff;
-  font-size: 4.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.banner-overlay .btn-contact {
-  background: #fff;
-  color: #222;
-  border-radius: 50px;
-  padding: 12px 28px;
-  font-weight: 600;
-  text-decoration: none;
-  text-transform: uppercase;
-  margin-left: 10px;
-}
-
-.banner-overlay .btn-testdrive-outline {
-  border: 2px solid #fff;
-  color: #fff;
-  border-radius: 50px;
-  padding: 12px 28px;
-  font-weight: 600;
-  text-decoration: none;
-  text-transform: uppercase;
-  background: transparent;
-}
-
-.section-banner .swiper-pagination-bullet {
-  width: 40px;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 1;
-}
-
-.section-banner .swiper-pagination-bullet-active {
-  background: #fff;
-}
-
-.service-box img {
+.section-banner .swiper-slide img {
   width: 100%;
-  transition: transform 0.4s ease;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center bottom !important;
 }
 
-.service-box:hover img {
-  transform: scale(1.05);
+.section-banner .swiper-pagination {
+  z-index: 5;
 }
 
-.service-box h3 {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  margin: 0;
-  font-size: 1.25rem;
-  z-index: 2;
+.service-image img {
+  display: block;
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
 }
 
-.service-box::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.65));
+.service-box:hover .service-image img,
+.service-box:focus .service-image img {
+  transform: scale(1.1);
+}
+
+@media (max-width: 767px) {
+  .service-image img {
+    height: auto;
+  }
+
+  .service-box h3 {
+    font-size: 20px;
+    padding: 20px;
+  }
 }
 
 .news-article-card {
@@ -145,21 +132,6 @@ body {
 .news-article-card h3 {
   font-size: 1.1rem;
   font-weight: 600;
-}
-
-.quick-links-tab {
-  position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: right center;
-  background: #222;
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 12px;
-  z-index: 999;
-  cursor: pointer;
-  letter-spacing: 1px;
 }
 
 .model-color-dot {
@@ -284,4 +256,43 @@ body {
     box-shadow: none;
     padding: 0.5rem 0;
   }
+}
+
+.section-locations .map-box {
+  position: relative;
+  overflow: visible;
+}
+
+.section-locations .map-box .point {
+  position: absolute !important;
+  width: 26px;
+  height: 26px;
+  z-index: 3;
+}
+
+.section-locations .marker-wrap {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  padding: 0;
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.section-locations .map-box .mappin-box.show {
+  display: block !important;
+}
+
+.section-locations .location-title img {
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.section-locations .location-info img {
+  height: 16px;
+  width: auto;
 }

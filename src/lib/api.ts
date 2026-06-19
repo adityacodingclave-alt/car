@@ -10,6 +10,7 @@ export interface HomepageData {
   banner_image1: string;
   banner_image1_mobile: string;
   banner_image1_title: string;
+  banner_image1_description: string;
   banner_image1_button1: string;
   banner_image1_button1_url: string;
   banner_image1_button2: string;
@@ -17,6 +18,7 @@ export interface HomepageData {
   banner_image2: string;
   banner_image2_mobile: string;
   banner_image2_title: string;
+  banner_image2_description: string;
   banner_image2_button1: string;
   banner_image2_button1_url: string;
   banner_image2_button2: string;
@@ -24,6 +26,7 @@ export interface HomepageData {
   banner_image3: string;
   banner_image3_mobile: string;
   banner_image3_title: string;
+  banner_image3_description: string;
   banner_image3_button1: string;
   banner_image3_button1_url: string;
   banner_image3_button2: string;

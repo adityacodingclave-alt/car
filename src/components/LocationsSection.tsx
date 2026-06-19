@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const UAE_FLAG =
   "https://www.baicglobal.com/file/common/image/2022/07/14/Flag_of_the_United_Arab_Emirates.svg_20220714151626A055.png";
@@ -15,7 +18,49 @@ const ICON_FACEBOOK =
 const ICON_INSTAGRAM =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARzQklUCAgICHwIZIgAAAG3SURBVDhPjZPdVcJAEIVdwGegArGDCLwTKoAOwAqMFYgViBWYVIBWoLwDxgqkBB58DMRv1p2cPRh+9pycZCezd+7euWMu3Op2u2Ge53fGmKHGjrxTcqfL5TLRHCMf7XZ7XKlUXlxwTlIK4OYAkBQM+F/nHQN2K3lGmPB+J/i13W6HaZquTzEKgqBRrVangI3IfVwsFhPT6XReCQyyLLs+B4TCE4qOKHoDWApQHVZNYZSzmYMqzIrlqg4o0pIghRIpJIXZhgAFtVptzPcD//6AWM+gRooCSEC1mYJofLfb3a9Wq6nuAR2SMyuA9J6S4Jh88tmkagiLdE+TPuw/JFf1LQXSKuQVBzwGaxisVYajQCKm3Jtkaw1/OX16Iu5JRuqpsi4CZP11FiP0aElbOfANWB+JrDEpEGHaJ1/wo1dzh6zT6abVhFhD+sD+jWsVI1QGVOYjsUCkFoBJTOtjXzPV03ZN7s3PK1otzj40X/u62z1AYoMeml0aFdcfwNJTe0HvXMJ1x7bFsIplAJ0mQv/g9JMT8t8+btDFtJvCK24YRZP6OYwASZAjUjn+mU7G4RQQh3/Iyfy8X+JSRsYbpYeKAAAAAElFTkSuQmCC";
 
+const MAP_LINK =
+  "https://www.google.com/maps/dir/25.2293563,55.2811886/Al+Ittihad+RD+-Al+Khabaisi,+Dubai/@25.2460883,55.2684283,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3e5f5d4260acab71:0x746ed94c17eba4fd!2m2!1d55.3319015!2d25.2588882?entry=ttu";
+
+function ContactIcons() {
+  return (
+    <>
+      <li>
+        <a className="dropdown-item" href={MAP_LINK}>
+          <img src={ICON_MAP} alt="Map" loading="lazy" />
+        </a>
+      </li>
+      <li>
+        <a className="dropdown-item" href="tel:009718002242823">
+          <img src={ICON_PHONE} alt="Phone" loading="lazy" />
+        </a>
+      </li>
+      <li>
+        <a
+          className="dropdown-item"
+          href="https://www.facebook.com/BAICUAE"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={ICON_FACEBOOK} alt="Facebook" loading="lazy" />
+        </a>
+      </li>
+      <li>
+        <a
+          className="dropdown-item"
+          href="https://www.instagram.com/baicuae/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={ICON_INSTAGRAM} alt="Instagram" loading="lazy" />
+        </a>
+      </li>
+    </>
+  );
+}
+
 export default function LocationsSection() {
+  const [pinOpen, setPinOpen] = useState(false);
+
   return (
     <section className="section-locations pt-5">
       <div className="container">
@@ -36,39 +81,27 @@ export default function LocationsSection() {
                 height={600}
                 className="img-fluid"
               />
-              <div className="point mkr4">
-                <ul className="dropdown-menu mappin-box">
+              <div
+                className={`point mkr4 dropdown-toggle${pinOpen ? " show" : ""}`}
+              >
+                <button
+                  type="button"
+                  className="marker-wrap"
+                  aria-expanded={pinOpen}
+                  aria-label="Toggle UAE location details"
+                  onClick={() => setPinOpen((open) => !open)}
+                >
+                  <span className="marker" />
+                </button>
+                <ul
+                  className={`dropdown-menu mappin-box${pinOpen ? " show" : ""}`}
+                >
                   <li>
                     <a className="dropdown-item" href="#">
                       UAE
                     </a>
                   </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      <img src={ICON_MAP} alt="" loading="lazy" />
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="tel:009718002242823">
-                      <img src={ICON_PHONE} alt="" loading="lazy" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="https://www.facebook.com/BAICUAE"
-                    >
-                      <img src={ICON_FACEBOOK} alt="" loading="lazy" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="https://www.instagram.com/baicuae/"
-                    >
-                      <img src={ICON_INSTAGRAM} alt="" loading="lazy" />
-                    </a>
-                  </li>
+                  <ContactIcons />
                 </ul>
               </div>
             </div>
@@ -76,46 +109,21 @@ export default function LocationsSection() {
               <div className="row align-items-center mb-3">
                 <div className="col col-4">
                   <div className="location-title">
-                    <img
+                    <Image
                       src={UAE_FLAG}
                       className="img-fluid"
                       alt="UAE flag"
-                      loading="lazy"
+                      width={30}
+                      height={20}
+                      unoptimized
+                      referrerPolicy="no-referrer"
                     />
                     UAE
                   </div>
                 </div>
                 <div className="col col-8">
                   <ul className="location-info">
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="https://www.google.com/maps/dir/25.2293563,55.2811886/Al+Ittihad+RD+-Al+Khabaisi,+Dubai/@25.2460883,55.2684283,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3e5f5d4260acab71:0x746ed94c17eba4fd!2m2!1d55.3319015!2d25.2588882?entry=ttu"
-                      >
-                        <img src={ICON_MAP} alt="" loading="lazy" />
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="tel:009718002242823">
-                        <img src={ICON_PHONE} alt="" loading="lazy" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="https://www.facebook.com/BAICUAE"
-                      >
-                        <img src={ICON_FACEBOOK} alt="" loading="lazy" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="https://www.instagram.com/baicuae/"
-                      >
-                        <img src={ICON_INSTAGRAM} alt="" loading="lazy" />
-                      </a>
-                    </li>
+                    <ContactIcons />
                   </ul>
                 </div>
               </div>
